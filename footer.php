@@ -5,7 +5,7 @@
 	<script>
 		head.js(
 		  { jquery:   '//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js' },
-		  { main:     '<?php echo $template; ?>/js/scripts.js' },
+		  { main:     '<?php echo $template; ?>/js/script-e291d0fee1.min.js' },
 			{ fitvids:  '//cdnjs.cloudflare.com/ajax/libs/fitvids/1.1.0/jquery.fitvids.min.js' },
 			{ mapbox:   '//api.tiles.mapbox.com/mapbox.js/v1.5.1/mapbox.js' },
 			{ twitter:  '//platform.twitter.com/widgets.js' },

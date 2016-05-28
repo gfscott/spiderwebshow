@@ -3,31 +3,31 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); // BEGIN WORDPRESS LOOP ?>
 
 	<div class="pure-u-1">
-  	
+
     <figure class="vertical_header">
       <img class="vertical_header-img" src="https://spiderwebshow.ca/wp-content/uploads/2015/10/sws-talkshow.jpg" alt="">
       <p class="vertical_header-caption">Photo: <em>Habitat</em> by Mathieu Murphy-Perron, from the <a href="https://spiderwebshow.ca/images">SpiderWebShow Gallery</a></p>
     </figure>
-  	
+
 		<h1><?php the_title(); ?></h1>
 	</div>
-	
+
 	<div class="pure-u-2-5">
 		<?php the_content(); ?>
-		
+
 		<script>
 		  // Load the Google API to load the Youtube Subscribe button
   		head.load("//apis.google.com/js/platform.js");
 		</script>
 		<hr>
 		<p>Subscribe on YouTube: <div class="g-ytsubscribe" data-channel="sarahgartonstanley" data-layout="default" data-count="hidden"></div></p>
-		
+
 	</div>
 
 <?php endwhile; else: ?>
 <p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 <?php endif; ?>
-	
+
 	<?php
 		// Custom posts loop for commissions
 		$args = array( 'post_type' => 'talk-show', 'posts_per_page' => 1 );
@@ -42,17 +42,17 @@
 		}
 	?>
 		<?php endwhile;	?>
-	
+
 	<div class="pure-u-3-5">
 	<figure id="embed_youtube" class="embed video youtube">
-		<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/<?php echo $firstVideoID; ?>?rel=0" frameborder="0" allowfullscreen></iframe>		
+		<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/<?php echo $firstVideoID; ?>?rel=0" frameborder="0" allowfullscreen></iframe>
 	</figure>
 	<p>
-	  <small><a href="<?php echo $permalinkToTalkShow; ?>"><i class="icon-link"></i> Permanent link to this episode »</a></small>
+	  <small><a href="<?php echo $permalinkToTalkShow; ?>"> Permanent link to this episode »</a></small>
 	</p>
 	</div>
 
-	
+
 	<div class="pure-u-1">
     <h1>Previous Talk Shows</h1>
 	</div>
@@ -61,7 +61,7 @@
 			$args = array( 'post_type' => 'talk-show', 'posts_per_page' => 6, 'offset' => 1 );
 			$loop = new WP_Query( $args );
 			while ( $loop->have_posts() ) : $loop->the_post(); ?>
-			
+
 			<article class="pure-u-1-3">
 			<?php
 				// For each Commission post, fetch the url of the youtube video and then isolate just its ID.
@@ -79,52 +79,51 @@
 					.commission-preview.thumb-loaded .icon-youtube-play { display: block; }
 				</style>
 				<figure class="commission-preview">
-					<a href="<?php the_permalink(); ?>">						
+					<a href="<?php the_permalink(); ?>">
 						<img src="" alt="video thumbnail image" class="commission-thumbnail" data-youtube-id="<?php echo $videoID; ?>" />
-						<i class="icon-youtube-play"></i>
 					</a>
 				</figure>
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				<?php the_excerpt(); ?>
 			</article>
-			
+
 		<?php endwhile;	?>
 <script>
-		
+
 		// Helper function to isolate a Youtube video ID from a Youtube URL
 		function getVideoID(url) {
 			var vID = url.match(/\?v=([\w-]{11})/)[1];
 			return vID;
 		};
-		
+
 		function loadYoutube(){
-			
+
 			// Youtube API call to fetch the first video from the specified playlist
 			var youTubeQuery = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=1&order=date&playlistId=PLriu98w2Np-kvLJsKEYW7OZXv7EMYZEOp&key=AIzaSyAigcUcBr55WcO56VqFPw1izemze7oRtqk";
 
-			// Make JSONP call to fetch the object 
+			// Make JSONP call to fetch the object
 			$.getJSON(youTubeQuery, function(data){
 				var v, vID, vTitle, videoEmbed;
-				
+
 				// Get the video ID
 				vID = data.items[0].snippet.resourceId.videoId;
 				// embed it!
 				videoEmbed = $('<iframe width="560" height="315" src="http://www.youtube-nocookie.com/embed/' + vID + '?rel=0" frameborder="0" allowfullscreen></iframe>');
-				$('.video').append(videoEmbed).fitVids();		
-				});	
+				$('.video').append(videoEmbed).fitVids();
+				});
 		};
-		
+
 		function loadThumbnails(){
 			// Grab all the img.commission-thumbnail elements
 			var thumbs = $('.commission-thumbnail');
 			if(thumbs){
-				
-				// for each. execute the function to get the thumbnail image 
+
+				// for each. execute the function to get the thumbnail image
 				thumbs.each(function(){
 					var thumb = $(this),
 							videoID = thumb.data('youtube-id'),
 							thumbQuery = 'https://www.googleapis.com/youtube/v3/videos?part=snippet&id=' + videoID + '&key=AIzaSyAigcUcBr55WcO56VqFPw1izemze7oRtqk';
-							
+
 					$.getJSON(thumbQuery, function(data){
 						var thumbURL = data.items[0].snippet.thumbnails.high.url;
 						thumb.attr('src', thumbURL);
@@ -134,16 +133,16 @@
 				});
 			} else return;
 		};
-		
-		
-		
-		
+
+
+
+
 	head.ready(function(){
 		$('#embed_youtube').fitVids();
 		//loadYoutube();
 		loadThumbnails();
 	});
-		
+
 </script>
 
 </div><!-- /.main_content -->
