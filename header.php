@@ -15,7 +15,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
 	<!-- CSS -->
-	<link href="<?php bloginfo('template_url'); ?>/css/style-4f1b49e0fe.min.css" media="screen, projection" rel="stylesheet" />
+	<link href="<?php bloginfo('template_url'); ?>/css/style-f9fde5ff3d.min.css" media="screen, projection" rel="stylesheet" />
 
 	<!-- Mapbox CSS -->
 	<link href='https://api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
