@@ -46,9 +46,29 @@
 
   	<article class="Videoseries-card">
 
-      <?php if(has_post_thumbnail()): ?>
-        <figure>
+      <?php if (has_post_thumbnail()): ?>
+        <figure class="Videoseries-thumbnail">
           <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail('square-300'); ?></a>
+        </figure>
+      <?php else : ?>
+        <?php
+          // Using the YouTube url custom field, fetch the thumbnail from YouTube, and embed it here
+          $youTubeURL = types_render_field("youtube-url", array("raw"=>"true"));
+          // a simple regex extracts the 11-character YouTube id
+          $idPattern = "/\?v=([\w-]{11})/";
+					preg_match($idPattern, $youTubeURL, $extractedString);
+					$youTubeID = ($extractedString[1]);
+          // YouTube exposes thumbnail URLs at a simple image endpoint! This is useful.
+          // http://www.joshuawinn.com/get-the-thumbnails-of-a-youtube-video-standard-url-and-file-names/
+          $youTubeImg = "https://img.youtube.com/vi/" . $youTubeID . "/mqdefault.jpg";
+          // $explodedYouTubeImage = explode( "://", $youTubeImg );
+          //// Then serve it using the images.weserv.nl image proxy, which enables trimming
+          // $cdnSrc = "https://images.weserv.nl/?url=" . $explodedYouTubeImage[1] . "&trim";
+        ?>
+        <figure class="Videoseries-thumbnail">
+          <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+            <img src="<?php echo $youTubeImg; ?>" alt="<?php the_title(); ?>">
+          </a>
         </figure>
       <?php endif; ?>
 

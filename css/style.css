@@ -9,7 +9,6 @@ normalize.css v1.1.2 | MIT License | git.io/normalize
 Copyright (c) Nicolas Gallagher and Jonathan Neal
 */
 /*! normalize.css v1.1.2 | MIT License | git.io/normalize */
-@import "https://cdn.rawgit.com/SpiderWebShow/purecss-0.2.1/master/pure0.2.1.css";
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
   display: block; }
 
@@ -852,9 +851,6 @@ table {
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* Import the purecss base styles, see http://purecss.io */
-/* Import the Roboto font from Google's Font API */
-/* @import "https://fonts.googleapis.com/css?family=Roboto:100,100italic,400,400italic"; */
 /* MEASUREMENTS */
 /* COLORS */
 /* LINK COLORS */
@@ -1501,146 +1497,182 @@ span.which-lab {
 /* 404 ERROR PAGE */
 .fourohfour {
   text-align: center; }
-@media only screen and (max-width: 480px){
-  .pure-form button[type=submit]{
+
+.Videoseries-card {
+  width: 100%;
+  position: relative;
+  margin-bottom: 1em;
+  background-color: #fff;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6); }
+
+.Videoseries-thumbnail {
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+.Videoseries-thumbnail img {
+  width: 100%;
+  z-index: 50; }
+
+.Videoseries-text {
+  padding: 1em; }
+
+.Videoseries-title {
+  margin: 0; }
+
+@media only screen and (max-width: 480px) {
+  .pure-form button[type=submit] {
     margin: .7em 0 0; }
-  .pure-form input[type=text], .pure-form input[type=password], .pure-form input[type=email], .pure-form input[type=url], .pure-form input[type=date], .pure-form input[type=month], .pure-form input[type=time], .pure-form input[type=datetime], .pure-form input[type=datetime-local], .pure-form input[type=week], .pure-form input[type=number], .pure-form input[type=search], .pure-form input[type=tel], .pure-form input[type=color], .pure-form label{
+  .pure-form input[type=text], .pure-form input[type=password], .pure-form input[type=email], .pure-form input[type=url], .pure-form input[type=date], .pure-form input[type=month], .pure-form input[type=time], .pure-form input[type=datetime], .pure-form input[type=datetime-local], .pure-form input[type=week], .pure-form input[type=number], .pure-form input[type=search], .pure-form input[type=tel], .pure-form input[type=color], .pure-form label {
     margin-bottom: .3em;
     display: block; }
-  .pure-group input[type=text], .pure-group input[type=password], .pure-group input[type=email], .pure-group input[type=url], .pure-group input[type=date], .pure-group input[type=month], .pure-group input[type=time], .pure-group input[type=datetime], .pure-group input[type=datetime-local], .pure-group input[type=week], .pure-group input[type=number], .pure-group input[type=search], .pure-group input[type=tel], .pure-group input[type=color]{
+  .pure-group input[type=text], .pure-group input[type=password], .pure-group input[type=email], .pure-group input[type=url], .pure-group input[type=date], .pure-group input[type=month], .pure-group input[type=time], .pure-group input[type=datetime], .pure-group input[type=datetime-local], .pure-group input[type=week], .pure-group input[type=number], .pure-group input[type=search], .pure-group input[type=tel], .pure-group input[type=color] {
     margin-bottom: 0; }
-  .pure-form-aligned .pure-control-group label{
+  .pure-form-aligned .pure-control-group label {
     margin-bottom: .3em;
     text-align: left;
     display: block;
     width: 100%; }
-  .pure-form-aligned .pure-controls{
+  .pure-form-aligned .pure-controls {
     margin: 1.5em 0 0; }
-  .pure-form .pure-help-inline, .pure-form-message-inline, .pure-form-message{
+  .pure-form .pure-help-inline, .pure-form-message-inline, .pure-form-message {
     display: block;
     font-size: 80%;
     padding: .2em 0 .8em; } }
-@media (min-width: 980px){
-  .pure-visible-phone{
+
+@media (min-width: 980px) {
+  .pure-visible-phone {
     display: none; }
-  .pure-visible-tablet{
+  .pure-visible-tablet {
     display: none; }
-  .pure-hidden-desktop{
+  .pure-hidden-desktop {
     display: none; } }
-@media (max-width: 480px){
-  .pure-g-r > .pure-u, .pure-g-r > [class*="pure-u-"]{
+
+@media (max-width: 480px) {
+  .pure-g-r > .pure-u, .pure-g-r > [class*="pure-u-"] {
     width: 100%; }
-  .pure-menu-horizontal{
+  .pure-menu-horizontal {
     width: 100%; }
-  .pure-menu-children li{
+  .pure-menu-children li {
     display: block;
     border-bottom: 1px solid #000; } }
-@media (max-width: 767px){
-  .pure-g-r > .pure-u, .pure-g-r > [class*="pure-u-"]{
+
+@media (max-width: 767px) {
+  .pure-g-r > .pure-u, .pure-g-r > [class*="pure-u-"] {
     width: 100%; }
-  .pure-hidden-phone{
+  .pure-hidden-phone {
     display: none; }
-  .pure-visible-desktop{
+  .pure-visible-desktop {
     display: none; }
-  .pure-g-r > [class^="pure-u"]{
+  .pure-g-r > [class^="pure-u"] {
     padding-right: 0;
     padding-left: 0; }
-  .main_content{
+  .main_content {
     padding: 0; }
-  h1{
+  h1 {
     font-size: 2.5em; }
-  .nav_menu{
+  .nav_menu {
     margin-top: 3em;
     background: #2c3e50;
     display: none; }
-  .nav_menu li{
+  .nav_menu li {
     border: none; }
-  .nav_menu.visible{
+  .nav_menu.visible {
     display: block; }
-  .nav_menu a{
+  .nav_menu a {
     display: block;
     padding: 0.4em;
     border: solid 1px #444;
     color: #fff; }
-  .nav_toggle{
+  .nav_toggle {
     display: block; }
-  .stage{
+  .stage {
     padding: 2em 0; }
-  .stage h1{
+  .stage h1 {
     margin-top: 0.67em; }
-  .main_content h1{
+  .main_content h1 {
     font-size: 2em; }
-  .directory-card{
+  .directory-card {
     margin: 1em;
     padding: 1em;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
     width: calc(100% - 2em); }
-  .cdncult_header h1{
+  .cdncult_header h1 {
     font-size: 2em; }
-  .cdncult_home .edition-intro{
+  .cdncult_home .edition-intro {
     padding-right: 0;
     border: 0; }
-  .cdncult_home .edition-article-excerpts{
+  .cdncult_home .edition-article-excerpts {
     padding-left: 0; }
-  .post-content{
+  .post-content {
     padding-right: 0; } }
-@media (min-width: 768px) and (max-width: 979px){
-  .pure-hidden-tablet{
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .pure-hidden-tablet {
     display: none; }
-  .pure-visible-desktop{
+  .pure-visible-desktop {
     display: none; } }
-@media (min-width: 768px){
-  .nav, .main{
+
+@media (min-width: 768px) {
+  .nav, .main {
     min-height: 100%; }
-  .nav{
+  .nav {
     position: relative;
     width: 20%;
     background: #fff; }/* Logo displays at Desktop and wider sizes */
-  .nav-logo{
+  .nav-logo {
     display: block; }
-  .main{
+  .main {
     margin-top: 0;
     position: absolute;
     width: 80%;
     margin-left: 20%; }
-  .nav-logo{
+  .nav-logo {
     display: block;
     padding: 1em;
     max-width: 100%; }
-  .nav-title{
+  .nav-title {
     position: relative;
     margin: 0;
     font-size: 2em;
     color: #444;
     overflow: hidden; }
-  .nav-title span{
+  .nav-title span {
     float: left; }
-  .nav-established{
+  .nav-established {
     padding: 0 1rem;
     text-decoration: none;
     color: #444; }
-  .directory-card{
+  .directory-card {
     margin: 1em;
     padding: 1em;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6);
     width: calc(50% - 2em); }
-  .Archive-thumbnail{
+  .Archive-thumbnail {
     float: left;
     margin-right: 1em; }
   .podcast-card,
-  .Soundseries-card{
+  .Soundseries-card {
     padding: 1em; }
   .podcast-card figure,
-  .Soundseries-card figure{
+  .Soundseries-card figure {
     float: left;
     margin-right: 1em;
     width: auto; }
   .podcast-card figure img,
-    .Soundseries-card figure img{
+    .Soundseries-card figure img {
     width: auto; }
-  .columnize{
+  .columnize {
     columns: 3;
     -webkit-columns: 3;
-    -moz-columns: 3; } }
+    -moz-columns: 3; }
+  .Videoseries-card {
+    overflow: hidden; }
+  .Videoseries-card figure {
+    margin: 0; }
+  .Videoseries-thumbnail {
+    padding: 1em;
+    width: auto;
+    float: left; } }
 
 /*# sourceMappingURL=style.css.map */
